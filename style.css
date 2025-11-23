@@ -1,0 +1,176 @@
+/* GLOBAL */
+html, body{
+  height: 100%;
+}
+body {
+  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #1e1e1e;
+}
+
+.container {
+  min-height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 3% 0 10%;
+  gap: 40px;
+}
+
+/* BRAND SIDE */
+.brand-section {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* background-image: url('images/Washington.jpg'); */
+}
+
+/* (Removed relative positioning — pin will be positioned relative to the page) */
+
+/* Truck Photo */
+.map-photo {
+  /* width: auto; */
+  width: 50%;
+  margin-left: 90%;
+  border-radius: 12px;
+}
+
+/* Pin Logo (blue marker) */
+.pin-logo {
+  width: 140px;
+  height: 140px;
+  background: #2b6cff;
+  border-radius: 70px 70px 70px 0;
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Position the pin relative to the viewport so movement uses page coords */
+.pin-logo {
+  left: 85%;
+  top: 8%;
+  transition: left 120ms linear, top 120ms linear, transform 180ms ease;
+  cursor: grab;
+}
+
+/* Rotate the pin by 90deg on hover/focus (base is -135deg; +90 -> -45deg) */
+.pin-logo:hover,
+.pin-logo:focus {
+  transform: rotate(-135deg);
+  outline: none;
+}
+
+/* same visual state when JS adds this class during scroll */
+.pin-logo.rotated-scroll {
+  transform: rotate(-135deg);
+}
+
+.pin-center {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Text */
+.brand-title {
+  font-size: 36px;
+  color: #2b6cff;
+  margin-top: 20px;
+}
+
+.brand-title span {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.location {
+  color: rgba(235, 242, 42, 0.855);
+  margin-top: -10px;
+  font-size: 18px;
+}
+
+/* MAP SECTION */
+.avatar-banner {
+  text-align: right;
+  padding: 1%;
+}
+
+.slogan {
+  color: #bfbebe;
+  text-align: left;
+  margin-left: 5%;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.avatar-image {
+  width: 80px;
+  border-radius: 50%;
+  /* margin: 0 0px 0 0; */
+}
+
+/* FOOTER */
+footer {
+  background: #2b6cff;
+  color: white;
+  padding: 20px 50px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+footer a {
+  margin-right: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ---------------------------
+   MOBILE RESPONSIVE VERSION
+--------------------------- */
+
+@media (max-width: 900px) {
+
+  .container {
+    padding: 0 20px 0 20px;
+  }
+
+  .brand-section, .map-section {
+    width: 100%;
+  }
+
+  .brand-title {
+    font-size: 28px;
+  }
+
+  .map-photo {
+    width: 95%;
+    margin-left: 0;
+  }
+  .slogan {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .avatar-image {
+  width: 70px;
+  border-radius: 50%;
+  margin: 0 5% 0 0;
+  }
+
+  footer {
+    height: auto;
+    margin-top: 0px;
+    flex-direction: row;
+    text-align: center;
+    gap: 10px;
+  }
+}
